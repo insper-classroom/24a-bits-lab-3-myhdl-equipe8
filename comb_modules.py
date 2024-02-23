@@ -18,7 +18,7 @@ def exe1(q, a, b):
 
     @always_comb
     def comb():
-        pass
+        q.next = a or (not b)
 
     return instances()
 
@@ -44,7 +44,7 @@ def exe2(q, a, b, c):
 
     @always_comb
     def comb():
-        q.next = a or b
+        q.next = (a or b or (not c)) and (a or (not b) or c) and ((not a) or b or (not c)) and ((not a) or not(b) or c)
 
     return instances()
 
@@ -72,7 +72,7 @@ def exe3(q, a, b, c, d, e):
 
     @always_comb
     def comb():
-        q.next = a
+        q.next = (((a or b) and c) and d) and e
 
     return instances()
 
@@ -99,7 +99,6 @@ def exe5(leds, sw):
     led3 é xor entre sw0 e sw1
     todos os outros leds acesos
     """
-
     @always_comb
     def comb():
         pass
