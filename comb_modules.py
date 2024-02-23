@@ -101,8 +101,7 @@ def exe5(leds, sw):
     """
     @always_comb
     def comb():
-        pass
-
+        leds[0].next = sw[0] and sw[1] and sw[2] and sw[3] and sw[4] and sw[5]
     return instances()
 
 
